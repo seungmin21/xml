@@ -6,6 +6,22 @@
   <title>Document</title>
 </head>
 <body>
-  <div></div>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root')
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "./test.json", true);
+
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+      } else if (xhr.readyState === 4 && xhr.status !== 200) {
+        console.error('에러')
+      }
+    };
+    xhr.send();
+  </script>
 </body>
 </html>
