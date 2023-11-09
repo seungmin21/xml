@@ -1,11 +1,10 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = 3040;
+const userRouter = require('./route')
 
-app.get('/', (req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/html'})
-  res.end("hello")
-})
+app.use('/', userRouter)
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)
