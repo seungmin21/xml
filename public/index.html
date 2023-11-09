@@ -10,6 +10,18 @@
   <script>
     const root = document.getElementById('root');
     console.dir(root)
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:3040/test.json", true)
+
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+      } else if (xhr.readyState === 4 && xhr.status !== 200) {
+        console.error('404 not found')
+      }
+    };
+    xhr.send();
   </script>
 </body>
 </html>
