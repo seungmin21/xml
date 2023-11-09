@@ -5,6 +5,8 @@ const port = 3040;
 const userRouter = require('./route')
 
 app.use('/', userRouter)
+app.use('/sub', userRouter)
+
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)
